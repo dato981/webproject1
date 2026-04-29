@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everrest — The Archive</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="bg-ambient"></div>
+    <div class="bg-grid"></div>
+
+    <header>
+      <nav class="nav-left">
+        <a href="./htmls/signUp.html" class="nav-btn signup" id="sup"
+          >Sign Up</a
+        >
+        <span class="nav-sep">✦</span>
+        <a href="./htmls/signIn.html" class="nav-btn signin" id="sin"
+          >Sign In</a
+        >
+        <a href="./htmls/profile.html" class="nav-btn profile" id="prf"
+          >Profile</a
+        >
+        <span class="nav-sep">✦</span>
+        <button class="nav-btn logout" id="lout">Log Out</button>
+        <span class="nav-sep">✦</span>
+        <a href="./htmls/shop.html" class="nav-btn signup">Shop</a>
+      </nav>
+      <a href="index.html" class="wordmark">EVER<span>REST</span></a>
+      <nav class="nav-right">
+        <a href="https://everrest.educata.dev">The Archive</a>
+      </nav>
+      <button id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div id="nav-drawer">
+      <a href="./htmls/signUp.html" class="nav-btn signup" id="sup-m"
+        >Sign Up</a
+      >
+      <a href="./htmls/signIn.html" class="nav-btn signin" id="sin-m"
+        >Sign In</a
+      >
+      <a href="./htmls/profile.html" class="nav-btn profile" id="prf-m"
+        >Profile</a
+      >
+      <button class="nav-btn logout" id="lout-m">Log Out</button>
+      <a href="./htmls/shop.html" class="nav-btn signup">Shop</a>
+      <a
+        href="https://everrest.educata.dev"
+        class="nav-btn"
+        >The Archive</a
+      >
+    </div>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="rune-tag" id="author">Awaiting signal...</p>
+          <div id="quote" class="ember">
+            "Click the button — a quote shall emerge from the void."
+          </div>
+          <p class="hero-desc" id="type">unknown</p>
+          <div class="hero-actions">
+            <a href="./htmls/signUp.html" class="btn-primary"
+              >Begin Your Journey</a
+            >
+            <a class="btn-ghost" id="fakebtn">Get Random quote</a>
+          </div>
+        </div>
+        <div class="hero-sigil">
+          <div class="sigil-glow"></div>
+          <div class="sigil-ring"></div>
+          <div class="sigil-ring"></div>
+          <div class="sigil-ring"></div>
+          <div class="sigil-core">⬡</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-bar">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-num">REST</span
+          ><span class="stat-label">Architecture</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">JWT</span
+          ><span class="stat-label">Auth System</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num"> ∞ </span
+          ><span class="stat-label"> Quotes </span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">⚔</span><span class="stat-label"> shop </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="section-heading">
+        <p class="section-eyebrow">// quote.archive</p>
+        <h2>The <span>Codex</span> of Wisdom</h2>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label for="filterAuthor">Author</label>
+          <input
+            type="text"
+            id="filterAuthor"
+            class="filter-input"
+            placeholder="e.g. Marcus Aurelius"
+          />
+        </div>
+        <div class="filter-field">
+          <label for="filterKeyword">Keyword</label>
+          <input
+            type="text"
+            id="filterKeyword"
+            class="filter-input"
+            placeholder="e.g. courage"
+          />
+        </div>
+        <div class="filter-action">
+          <button class="btn-filter" id="searchbtn">Search Archive</button>
+        </div>
+      </div>
+
+      <div class="archive-error" id="archiveError"></div>
+
+      <div class="types-bar" id="lists"></div>
+
+      <div class="quotes-grid" id="quotes-div"></div>
+
+      <div class="pagination-bar" id="pagination"></div>
+    </section>
+
+    <footer>
+      <div class="footer-left">EVER<span>REST</span> © 2025</div>
+      <div class="footer-right">
+        Built with intention — Powered by everrest.webscaffold.io
+      </div>
+    </footer>
+    <script src="./jss/j-script.js"></script>
+  </body>
+</html>

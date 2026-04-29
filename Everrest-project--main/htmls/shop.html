@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="../css/shop.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="sidebar-overlay"></div>
+    <div id="nav-overlay"></div>
+
+    <nav id="navbar">
+      <div class="left">
+        <div id="logo"><a href="./shop.html">MyShop</a></div>
+        <input type="text" id="search-input" placeholder="Search products..." />
+      </div>
+      <div class="right">
+        <a href="./cart.html" id="cart"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+        <a href="../index.html" class="nav-home-link">Home</a>
+        <button id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="nav-drawer">
+      <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+      <a href="../index.html">Home</a>
+    </div>
+
+    <div id="layout">
+      <aside id="sidebar">
+        <div class="filter-group">
+          <h3>Category</h3>
+          <div id="category-filters" class="hide"></div>
+        </div>
+
+        <div class="filter-group">
+          <h3>Brand</h3>
+          <div id="brand-filters" class="hide"></div>
+        </div>
+
+        <div class="filter-group">
+          <h3>Price</h3>
+          <div id="sort-buttons">
+            <button class="sort-btn" id="sort-asc">Price ↑</button>
+            <button class="sort-btn" id="sort-desc">Price ↓</button>
+          </div>
+        </div>
+
+        <button class="clear-filters" id="clear">✕ Remove all filters</button>
+      </aside>
+
+      <main id="main">
+        <button id="filter-toggle-btn">
+          <i class="fa-solid fa-sliders"></i> Filters
+        </button>
+        <div id="div1"></div>
+        <div id="div2"></div>
+      </main>
+    </div>
+    <footer>
+      <div class="footer-left">EVER<span>REST</span> © 2025</div>
+      <div class="footer-right">
+        Built with intention — Powered by everrest.webscaffold.io
+      </div>
+    </footer>
+    <script src="../jss/shop.js"></script>
+  </body>
+</html>

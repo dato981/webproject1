@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <header>
+      <nav class="nav-left">
+        <a href="profile.html" class="nav-btn profile signup" id="prf"
+          >Profile</a
+        >
+        <span class="nav-sep">✦</span>
+        <button class="nav-btn logout signin" id="lout">Log Out</button>
+        <span class="nav-sep">✦</span>
+        <a href="../index.html" class="nav-btn signup">EVER<span>REST</span></a>
+      </nav>
+      <a href="index.html" class="wordmark">EVER<span>REST</span></a>
+      <nav class="nav-right">
+        <a href="https://everrest.educata.dev">The Archive</a>
+      </nav>
+      <button id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div id="nav-drawer">
+      <a href="../htmls/profile.html" class="nav-btn profile" id="prf-m"
+        >Profile</a
+      >
+      <button class="nav-btn logout" id="lout-m">Log Out</button>
+      <a href="../htmls/shop.html" class="nav-btn signup">Shop</a>
+      <a href="https://everrest.educata.dev" class="nav-btn">The Archive</a>
+    </div>
+
+    <main class="profile-section">
+      <div class="profile-layout" id="profileLayout">
+        <div class="profile-sidebar">
+          <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <div class="avatar-img">
+              <img id="avatarImg" src="" alt="" />
+            </div>
+          </div>
+
+          <div class="profile-name">
+            <h2 id="fullName">—</h2>
+            <p id="email">—</p>
+          </div>
+
+          <div class="verified-badge no" id="verifiedBadge">
+            <span class="dot"></span>
+            <span id="verifiedText">unverified</span>
+          </div>
+
+          <div class="sidebar-divider"></div>
+
+          <div class="sidebar-meta">
+            <div class="sidebar-meta-item">
+              <span class="meta-label">Gender</span>
+              <span class="meta-value" id="gender">—</span>
+            </div>
+            <div class="sidebar-meta-item">
+              <span class="meta-label">Age</span>
+              <span class="meta-value" id="age">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-main">
+          <p class="info-section-title">Contact & Location</p>
+
+          <div class="info-grid">
+            <div class="info-field">
+              <span class="field-label">Phone</span>
+              <span class="field-value" id="phone">—</span>
+            </div>
+            <div class="info-field">
+              <span class="field-label">Zip Code</span>
+              <span class="field-value" id="zipcode">—</span>
+            </div>
+            <div class="info-field full">
+              <span class="field-label">Address</span>
+              <span class="field-value" id="address">—</span>
+            </div>
+            <div class="buttons">
+              <a id="chngPs" href="./changePass.html">change password</a>
+              <a href="./RecoverPass.html"> recover account </a>
+              <button>update data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-left">EVER<span>REST</span> © 2025</div>
+      <div class="footer-right">
+        Built with intention — Powered by everrest.webscaffold.io
+      </div>
+    </footer>
+
+    <script src="../jss/profile.js"></script>
+  </body>
+</html>

@@ -1,0 +1,452 @@
+/* HERO */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 70px;
+  overflow: hidden;
+}
+.profile-section {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 120px 3rem 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeUp 0.8s ease both;
+}
+
+.profile-eyebrow {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--soul);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.profile-eyebrow::before {
+  content: "//";
+  color: var(--text-dim);
+}
+
+.profile-title {
+  font-family: "Cinzel", serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 3rem;
+}
+.profile-title span {
+  color: var(--ember);
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5px;
+  background: var(--border);
+}
+
+.profile-sidebar {
+  background: var(--abyss);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+.profile-sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ember), var(--rune));
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+.avatar-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 107, 42, 0.25);
+  animation: rotate 12s linear infinite;
+}
+.avatar-ring::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 10px var(--ember);
+}
+.avatar-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(232, 107, 42, 0.2);
+  background: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: var(--ember2);
+  text-shadow: 0 0 20px rgba(232, 107, 42, 0.5);
+  overflow: hidden;
+}
+.avatar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.avatar-placeholder {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid rgba(232, 107, 42, 0.2);
+  background: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: var(--ember2);
+  text-shadow: 0 0 20px rgba(232, 107, 42, 0.5);
+}
+
+.profile-name {
+  text-align: center;
+}
+.profile-name h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 0.3rem;
+}
+.profile-name p {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.verified-badge.yes {
+  background: rgba(79, 195, 247, 0.08);
+  border: 1px solid rgba(79, 195, 247, 0.25);
+  color: var(--soul2);
+}
+.verified-badge.no {
+  background: rgba(232, 107, 42, 0.08);
+  border: 1px solid rgba(232, 107, 42, 0.25);
+  color: var(--ember2);
+}
+.verified-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.verified-badge.yes .dot {
+  background: var(--soul);
+  box-shadow: 0 0 6px var(--soul);
+}
+.verified-badge.no .dot {
+  background: var(--ember);
+  box-shadow: 0 0 6px var(--ember);
+}
+
+.sidebar-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+.sidebar-meta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.sidebar-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.sidebar-meta-item .meta-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.sidebar-meta-item .meta-label::before {
+  content: "// ";
+  color: var(--ember);
+  opacity: 0.5;
+}
+.sidebar-meta-item .meta-value {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-bright);
+}
+
+.profile-main {
+  background: var(--abyss);
+  padding: 2.5rem;
+  position: relative;
+}
+.profile-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--soul), var(--rune));
+}
+
+.info-section-title {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--soul);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.info-section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(79, 195, 247, 0.2), transparent);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.info-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(7, 8, 15, 0.5);
+  border: 1px solid rgba(79, 195, 247, 0.08);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.25s,
+    background 0.25s;
+}
+.info-field:hover {
+  border-color: rgba(232, 107, 42, 0.2);
+  background: rgba(232, 107, 42, 0.03);
+}
+.info-field::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--ember), transparent);
+  transition: width 0.3s ease;
+}
+.info-field:hover::before {
+  width: 100%;
+}
+
+.info-field .field-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.info-field .field-label::before {
+  content: "— ";
+  color: var(--ember);
+  opacity: 0.4;
+}
+.info-field .field-value {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-bright);
+  word-break: break-all;
+}
+.info-field .field-value.empty {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+.info-field.full {
+  grid-column: 1 / -1;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  gap: 1rem;
+}
+.loading-sigil {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  color: var(--ember2);
+  text-shadow: 0 0 20px rgba(232, 107, 42, 0.6);
+  animation: pulse-core 2s ease-in-out infinite;
+}
+.loading-text {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.loading-text::before {
+  content: "// ";
+  color: var(--soul);
+}
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  gap: 1rem;
+}
+.error-state p {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ff6b6b;
+}
+.error-state p::before {
+  content: "// error: ";
+  opacity: 0.5;
+}
+.buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.buttons button,
+.buttons a {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+/* first button — change password — ember style */
+.buttons button:first-child {
+  color: var(--void);
+  background: linear-gradient(135deg, var(--ember), var(--ember2));
+  border: none;
+  box-shadow: 0 4px 16px rgba(232, 107, 42, 0.25);
+}
+.buttons button:first-child:hover {
+  box-shadow: 0 4px 24px rgba(232, 107, 42, 0.45);
+  transform: translateY(-1px);
+}
+
+/* anchor — recover account — ghost style */
+.buttons a {
+  color: black;
+  border: 1px solid var(--border);
+  background-color: rgb(24, 209, 0);
+}
+.buttons a:hover {
+  border-color: var(--rune);
+  color: var(--rune);
+  background: rgba(255, 0, 0, 0.06);
+}
+
+/* last button — update data — soul style */
+.buttons button:last-child {
+  color: var(--void);
+  background: linear-gradient(135deg, var(--soul), var(--soul2));
+  border: none;
+  box-shadow: 0 4px 16px rgba(79, 195, 247, 0.2);
+}
+.buttons button:last-child:hover {
+  box-shadow: 0 4px 24px rgba(79, 195, 247, 0.4);
+  transform: translateY(-1px);
+}
+@keyframes pulse-core {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 860px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-section {
+    padding: 100px 1.5rem 3rem;
+  }
+  .info-field.full {
+    grid-column: 1;
+  }
+}

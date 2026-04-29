@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everrest — Sign In</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@300;400;500;600&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/signIn.css" />
+  </head>
+  <body>
+    <!-- FORM PANEL (LEFT) -->
+    <main class="panel-form">
+      <a href="../index.html" class="form-wordmark">EVER<span>REST</span></a>
+
+      <div class="form-header">
+        <p class="form-eyebrow">authenticate</p>
+        <h1>Return to the <span>everrest</span></h1>
+      </div>
+
+      <form id="form">
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="hero@everrest.dev"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="password">Password</label>
+            <a href="./RecoverPass.html" class="forgot-link">Forgot password?</a>
+          </div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+        <p class="error-msg" id="errorMsg"></p>
+        <button type="submit" class="btn-submit">Enter the Archive</button>
+
+      </form>
+
+      <p class="signup-prompt">
+        No account yet? <a href="signup.html">Forge one now →</a>
+      </p>
+    </main>
+
+    <!-- VISUAL PANEL (RIGHT) -->
+    <aside class="panel-visual">
+      <div class="panel-grid"></div>
+      <div class="panel-lines"></div>
+      <div class="panel-sigil">
+        <div class="p-ring"></div>
+        <div class="p-ring"></div>
+        <div class="p-ring"></div>
+        <div class="p-core">⬡</div>
+      </div>
+      <div class="panel-top">
+        <a href="../index.html" class="panel-wordmark">EVER<span>REST</span></a>
+      </div>
+      <div class="panel-bottom">
+        <div class="panel-tagline">
+          <p class="eyebrow">soul recognised</p>
+          <h2>Welcome<br />back, <span>Seeker.</span></h2>
+        </div>
+        <div class="testimonial">
+          <p>there should be something but is not</p>
+        </div>
+      </div>
+    </aside>
+    <script src="../jss/singIn.js"></script>
+  </body>
+</html>

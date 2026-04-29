@@ -1,0 +1,538 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --void: #07080f;
+  --abyss: #0d0e1a;
+  --surface: #1a1b2e;
+  --ember: #e86b2a;
+  --ember2: #f0a050;
+  --soul: #4fc3f7;
+  --soul2: #7dd3fc;
+  --rune: #a78bfa;
+  --text: #c8ccd8;
+  --text-dim: #6b7280;
+  --text-bright: #e8eaf0;
+  --border: rgba(232, 107, 42, 0.15);
+  --border-soul: rgba(79, 195, 247, 0.18);
+  --field-bg: rgba(13, 14, 26, 0.8);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--void);
+  color: var(--text);
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* VISUAL PANEL */
+.panel-visual {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--abyss);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+}
+.panel-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 20% 70%,
+      rgba(232, 107, 42, 0.12) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(79, 195, 247, 0.07) 0%,
+      transparent 50%
+    );
+}
+.panel-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79, 195, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 195, 247, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+/* Anime-style diagonal accent lines */
+.panel-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.panel-lines::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 40%;
+  width: 1px;
+  height: 200%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(232, 107, 42, 0.15),
+    transparent
+  );
+  transform: rotate(-25deg);
+}
+.panel-lines::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 60%;
+  width: 1px;
+  height: 200%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(79, 195, 247, 0.1),
+    transparent
+  );
+  transform: rotate(-25deg);
+}
+
+/* Rotating sigil in panel */
+.panel-sigil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.p-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  top: 50%;
+  left: 50%;
+  animation: rotate linear infinite;
+}
+.p-ring:nth-child(1) {
+  width: 280px;
+  height: 280px;
+  margin: -140px 0 0 -140px;
+  border-color: rgba(232, 107, 42, 0.1);
+  animation-duration: 50s;
+}
+.p-ring:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  border-color: rgba(79, 195, 247, 0.08);
+  animation-duration: 35s;
+  animation-direction: reverse;
+}
+.p-ring:nth-child(3) {
+  width: 130px;
+  height: 130px;
+  margin: -65px 0 0 -65px;
+  border-color: rgba(167, 139, 250, 0.1);
+  animation-duration: 22s;
+}
+.p-ring::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 8px var(--ember);
+}
+.p-ring:nth-child(2)::before {
+  background: var(--soul);
+  box-shadow: 0 0 8px var(--soul);
+}
+.p-ring:nth-child(3)::before {
+  background: var(--rune);
+  box-shadow: 0 0 8px var(--rune);
+}
+.p-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  color: var(--ember2);
+  text-shadow: 0 0 25px rgba(232, 107, 42, 0.7);
+  z-index: 2;
+  animation: pulse-core 3s ease-in-out infinite;
+}
+
+.panel-top {
+  position: relative;
+  z-index: 1;
+}
+.panel-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.panel-wordmark {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-bright);
+  text-shadow: 0 0 15px rgba(232, 107, 42, 0.3);
+}
+.panel-wordmark span {
+  color: var(--ember);
+}
+
+.panel-tagline {
+  margin-bottom: 1.2rem;
+}
+.panel-tagline .eyebrow {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soul);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.panel-tagline .eyebrow::before {
+  content: "//";
+  color: var(--text-dim);
+}
+.panel-tagline h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  line-height: 1.2;
+}
+.panel-tagline h2 span {
+  color: var(--ember);
+}
+
+.panel-signin {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+.panel-signin a {
+  color: var(--soul2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(79, 195, 247, 0.3);
+  padding-bottom: 1px;
+  transition: all 0.2s;
+}
+.panel-signin a:hover {
+  color: var(--soul);
+  border-color: var(--soul);
+}
+
+/* FORM PANEL */
+.panel-form {
+  overflow-y: auto;
+  padding: 3.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeUp 0.8s ease both;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+}
+.form-eyebrow {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+.form-eyebrow::before {
+  content: ">_";
+}
+.form-header h1 {
+  font-family: "Cinzel", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.1;
+}
+.form-header h1 span {
+  color: var(--ember);
+}
+
+/* FORM GRID */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+label::before {
+  content: "—";
+  color: var(--ember);
+  opacity: 0.5;
+  font-size: 0.5rem;
+}
+
+input,
+select {
+  background: var(--field-bg);
+  border: 1px solid rgba(232, 107, 42, 0.15);
+  border-radius: 2px;
+  padding: 11px 14px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-bright);
+  outline: none;
+  width: 100%;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input::placeholder {
+  color: rgba(107, 114, 128, 0.5);
+  font-size: 0.9rem;
+}
+input:focus,
+select:focus {
+  border-color: var(--ember);
+  background: rgba(232, 107, 42, 0.05);
+  box-shadow:
+    0 0 0 2px rgba(232, 107, 42, 0.1),
+    inset 0 0 20px rgba(232, 107, 42, 0.03);
+}
+
+/* Select */
+.select-wrap {
+  position: relative;
+}
+.select-wrap::after {
+  content: "↓";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--ember);
+  pointer-events: none;
+  font-family: "Share Tech Mono", monospace;
+}
+.select-wrap select {
+  padding-right: 34px;
+  cursor: pointer;
+  color: var(--text);
+}
+.select-wrap select option {
+  background: var(--abyss);
+  color: var(--text-bright);
+}
+
+/* Gender pills */
+.gender-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.gender-option {
+  display: none;
+}
+.gender-label {
+  flex: 1;
+  text-align: center;
+  padding: 10px 6px;
+  border: 1px solid rgba(232, 107, 42, 0.2);
+  border-radius: 2px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--field-bg);
+}
+.gender-label:hover {
+  border-color: var(--ember);
+  color: var(--ember2);
+  background: rgba(232, 107, 42, 0.06);
+}
+.gender-option:checked + .gender-label {
+  background: rgba(232, 107, 42, 0.12);
+  border-color: var(--ember);
+  color: var(--ember2);
+  box-shadow: 0 0 10px rgba(232, 107, 42, 0.1);
+}
+
+/* Section divider */
+.section-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.3rem 0;
+}
+.section-divider span {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--soul);
+  white-space: nowrap;
+}
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(79, 195, 247, 0.15), transparent);
+}
+.section-divider::after {
+  background: linear-gradient(270deg, rgba(79, 195, 247, 0.15), transparent);
+}
+
+/* Submit */
+.submit-row {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.btn-submit {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--void);
+  background: linear-gradient(135deg, var(--ember), var(--ember2));
+  border: none;
+  padding: 13px 32px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 20px rgba(232, 107, 42, 0.25);
+}
+.btn-submit:hover {
+  box-shadow: 0 4px 28px rgba(232, 107, 42, 0.45);
+  transform: translateY(-1px);
+}
+
+.form-note {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.form-note a {
+  color: var(--soul2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(79, 195, 247, 0.3);
+}
+.form-note a:hover {
+  color: var(--soul);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse-core {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+  .panel-visual {
+    display: none;
+  }
+  .panel-form {
+    padding: 3rem 1.5rem;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .field.full {
+    grid-column: 1;
+  }
+}

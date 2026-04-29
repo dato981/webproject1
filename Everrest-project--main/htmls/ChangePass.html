@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/ChangePass.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav-left">
+        <a href="../index.html" class="nav-btn signup" id="sup"> menu </a>
+      </nav>
+      <a href="index.html" class="wordmark">EVER<span>REST</span></a>
+      <nav class="nav-right">
+        <a href="https://everrest.educata.dev">The Archive</a>
+      </nav>
+    </header>
+    <div class="change-pass hide" id="PassChnDiv">
+      <div class="PassHead">
+        <h3>Change <span>your password</span></h3>
+      </div>
+      <div class="wrapper">
+        <form action="" id="form">
+          <label for="OldPass">old password</label>
+          <input
+            type="text"
+            id="OldPass"
+            placeholder="- enter your current password"
+            required
+          />
+          <p class="HidePass">password is wrong</p>
+          <label for="NewPass"> new password</label>
+          <input
+            type="text"
+            id="NewPass"
+            placeholder="- enter your new password"
+            required
+          />
+          <button type="submit" class="btn-submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="../jss/ChangePass.js"></script>
+  </body>
+</html>
